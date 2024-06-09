@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, m;
+    printf("Введіть кількість рядків матриці n: ");
+    scanf("%d", &n);
+    printf("Введіть кількість стовпців матриці m: ");
+    scanf("%d", &m);
+    
+    int a[n][m];
+    
+    printf("Введіть значення елементів:\n");
+    for (int i = 0; i < n; i++){
+       for (int j = 0; j < m; j++){
+           printf("a[%d][%d] = ", i, j);
+           scanf("%d", &a[i][j]);
+       }
+    }
+    
+    int max, min;
+    max = a[0][0];
+    min = a[0][0];
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            if(a[i][j] > max){
+                max = a[i][j];
+            }
+            if(a[i][j] < min){
+                min = a[i][j];
+            }
+            
+        }
+    }
+    
+    double avg = (min + max) / 2.0;
+    printf("Середнє арифметичне максимального та мінімального елементів: %.2f\n", avg);
+    
+    return 0;
+}
