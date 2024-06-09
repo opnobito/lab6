@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+    int row = 5, col = 4;
+    int mat[row][col];
+    int sum[col];
+    int IndMax = 0;
+    
+    srand(time(0));
+    
+    for (int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            mat[i][j] = rand() % 201 - 100;
+            sum[j] += mat[i][j];
+        }
+    }
+    
+    printf("Початкова матриця:\n");
+    for (int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            printf("%4d", mat[i][j]);
+        }
+        printf("\n");
+    }
+    
+    for(int j = 1; j < col; j++){
+        if(sum[j] > sum[IndMax])
+        IndMax= j;
+    }
+    printf("Стовпець з максимальною сумою %d\n", IndMax);
+    
+    printf("Матриця без стовпця з максимальною сумою:\n");
+    for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++){
+            if(j != IndMax)
+            printf("%4d", mat[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
