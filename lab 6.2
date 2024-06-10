@@ -4,7 +4,12 @@
 
 int main()
 {
-    int row = 5, col = 4;
+    int row, col;
+    printf("Введіть кількість рядків: ");
+    scanf("%d", &row);
+    printf("Введіть кількість стовпців: ");
+    scanf("%d", &col);
+
     int mat[row][col];
     int sum[col];
     int IndMax = 0;
